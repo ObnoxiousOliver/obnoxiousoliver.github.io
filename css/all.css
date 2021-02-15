@@ -1,3 +1,10 @@
+@font-face {
+    font-family: 'BN Machine';
+    font-style: normal;
+    font-weight: 400;
+    src: local('BN Machine'), url('css/fonts/BNMachine.woff') format('woff');
+}
+
 :root {
     --primary-color: #f02f75;
     --secondary-color: #4e22dd;
