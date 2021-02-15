@@ -10,7 +10,7 @@ body {
 
 body {
     background: #111;
-    font-family: 'Open Sans';
+    font-family: 'Open Sans', sans-serif;
     color: #fff;
     font-size: 1em;
     margin: 0;
@@ -142,7 +142,7 @@ body {
     display: none;
     position: absolute;
     top: 12px;
-    font-family: 'BN Machine';
+    font-family: 'BN Machine', sans-serif;
     font-size: 1.2em;
     text-decoration: none;
     line-height: 0.9em;
