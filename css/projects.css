@@ -1,0 +1,173 @@
+h1 {
+    font-family: Oswald;
+    font-size: 2em;
+    margin: 0 30px;
+    animation: h1Anim 1.5s;
+    animation-fill-mode: both;
+}
+
+@keyframes h1Anim {
+    0% {
+        opacity: 0;
+    }
+    25% {
+        opacity: 1;
+        text-shadow: none;
+    }
+    100% {
+        text-shadow: var(--primary-color) 0 0 20px, var(--secondary-color) 1px 1px, var(--secondary-color) 2px 2px, var(--secondary-color) 3px 3px, var(--secondary-color) 4px 4px, var(--secondary-color) 5px 5px, var(--secondary-color) 6px 6px;
+    }
+}
+
+#main {
+    padding: 20px;
+}
+
+.header {
+    padding: 20px 0;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.search {
+    flex-grow: 1;
+    display: flex;
+    border: #555 solid 0;
+    border-bottom-width: 1px;
+    padding: 10px;
+    color: white;
+    font: inherit;
+    font-family: 'Open Sans';
+    background: none;
+    transition: border-color .2s;
+    margin-top: 10px;
+}
+
+.search:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.items {
+    display: flex;
+    flex-direction: column;
+    animation: itemsAnim 1s .2s;
+    animation-fill-mode: backwards;
+}
+
+@keyframes itemsAnim {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+}
+
+.project {
+    color: unset;
+    height: 200px;
+    margin: 10px 0;
+    background: #333 no-repeat center center;
+    background-size: cover;
+    transition: transform .3s, box-shadow .3s;
+    text-decoration: none;
+    overflow: hidden;
+    position: relative;
+    box-shadow: var(--primary-color) 0 0, var(--secondary-color) 0 0, var(--secondary-color) 0 0, var(--secondary-color) 0 0, var(--secondary-color) 0 0, var(--secondary-color) 0 0, var(--secondary-color) 0 0, var(--secondary-color) 0 0;
+    transition: transform .4s, box-shadow .4s, height .2s, margin .2s;
+}
+
+.project.hidden {
+    height: 0;
+    margin: 0;
+}
+
+.project:hover {
+    transform: translate(-7px, -7px);
+    box-shadow: var(--primary-color) 0 0 10px, var(--secondary-color) 1px 1px, var(--secondary-color) 2px 2px, var(--secondary-color) 3px 3px, var(--secondary-color) 4px 4px, var(--secondary-color) 5px 5px, var(--secondary-color) 6px 6px, var(--secondary-color) 7px 7px;
+    transition: transform .2s, box-shadow .2s;
+}
+
+.project .info {
+    display: flex;
+    flex-flow: column nowrap;
+    height: 100%;
+}
+
+.project .info .name {
+    display: inline-block;
+    flex-grow: 1;
+    font-family: Oswald;
+    font-size: 2em;
+    text-shadow: var(--primary-color) 0 0 0, #555 1px 1px, #555 2px 2px, #555 3px 3px, #555 4px 4px, black 0 0 10px;
+    margin: 0 5px;
+    transition: text-shadow .4s;
+}
+
+.project:hover .info .name {
+    text-shadow: var(--primary-color) 0 0 4px, var(--secondary-color) 1px 1px, var(--secondary-color) 2px 2px, var(--secondary-color) 3px 3px, var(--secondary-color) 4px 4px, black 0 0 20px, black 0 0 20px;
+}
+
+.project .info .details {
+    padding: 10px;
+    font-size: 1.1em;
+    background-color: #000d;
+    color: white;
+    overflow: hidden;
+}
+
+@media screen and (min-width: 425px) {
+    h1 {
+        font-size: 3em;
+    }
+    .project {
+        height: 300px;
+    }
+    .project .info .name {
+        font-size: 3em;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    h1 {
+        font-size: 4em;
+    }
+    .header {
+        flex-direction: row;
+        align-items: center;
+    }
+    .search {
+        margin: 0 0 0 20px;
+    }
+    .items {
+        flex-grow: 1;
+        flex-flow: row wrap;
+    }
+    .project {
+        margin: 0;
+        flex-grow: 1;
+        min-width: 300px;
+        width: min-content;
+        max-width: 900px;
+        border: #555 solid 1px;
+        transition: transform .4s, box-shadow .4s, max-width .2s .1s, border-width .2s .1s, min-width .2s .1s, opacity .3s;
+    }
+    .project.hidden {
+        height: 300px;
+        margin: unset;
+        max-width: 0;
+        min-width: 0;
+        opacity: 0;
+        border-width: 0;
+    }
+    .project .info .name {
+        font-size: 3em;
+    }
+    .project .info .details {
+        transform: translateY(100%);
+        transition: transform .3s;
+    }
+    .project:hover .info .details {
+        transform: none;
+        transition: transform .2s .1s;
+    }
+}

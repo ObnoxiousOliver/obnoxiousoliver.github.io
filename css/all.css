@@ -1,0 +1,294 @@
+:root {
+    --primary-color: #f02f75;
+    --secondary-color: #4e22dd;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    background: #111;
+    font-family: 'Open Sans';
+    color: #fff;
+    font-size: 1em;
+    margin: 0;
+}
+
+:focus {
+    outline: #fff4 solid 3px;
+    outline-offset: -3px;
+    animation: focus-anim .1s;
+}
+
+::-webkit-scrollbar {
+    width: 16px;
+    height: 16px;
+}
+
+::-webkit-scrollbar-track {
+    background: #111;
+}
+
+::-webkit-scrollbar-corner {
+    background-color: #111;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #424242;
+    border: #111 solid 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #494949;
+}
+
+@keyframes focus-anim {
+    from {
+        outline-width: 0;
+        outline-offset: 0;
+    }
+    to {
+        outline-width: 3px;
+        outline-offset: -3px;
+    }
+}
+
+.nofocus:focus {
+    outline: none;
+}
+
+#sidebar {
+    z-index: 999;
+    background-color: #2c2c2c;
+    position: fixed;
+    height: 80px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    box-shadow: #000 0 0 20px -5px;
+}
+
+#sidebar button {
+    background: none;
+    width: 80px;
+    height: 80px;
+    flex-shrink: 0;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    font-size: 1.6em;
+    color: white;
+    border: none;
+    transition: background-color .1s, color .3s, text-shadow .3s;
+}
+
+#sidebar button.active {
+    background-color: #0002;
+    text-shadow: var(--primary-color) 0 0 10px, var(--secondary-color) 1px 1px, var(--secondary-color) 2px 2px, var(--secondary-color) 3px 3px, var(--secondary-color) 4px 4px !important;
+}
+
+#sidebar button:hover {
+    background-color: #0004;
+    text-shadow: #0000 0 0, #555 1px 1px, #555 2px 2px, #555 3px 3px, #555 4px 4px;
+}
+
+#sidebar button .icon {
+    transition: transform .3s;
+}
+
+#sidebar button:active .icon {
+    transform: translate(1px, 1px);
+    transition: transform .1s;
+}
+
+#sidebar button .active-indicator {
+    background-color: #555;
+    width: 40px;
+    height: 0;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    transition: height .2s, background-color .2s .2s, box-shadow .1s;
+}
+
+#sidebar button:hover .active-indicator {
+    height: 6px;
+}
+
+#sidebar button.active .active-indicator {
+    height: 6px;
+    background-color: var(--primary-color);
+    box-shadow: var(--primary-color) 0 0 20px 0;
+    transition: height .2s, background-color .1s, box-shadow .1s;
+}
+
+#sidebar .optionsBtn {
+    position: absolute;
+    bottom: 0;
+}
+
+#sidebar button .tooltip {
+    display: none;
+}
+
+.small-logo {
+    display: none;
+    position: absolute;
+    top: 12px;
+    font-family: 'BN Machine';
+    font-size: 1.2em;
+    text-decoration: none;
+    line-height: 0.9em;
+    color: white;
+    text-shadow: transparent 0 0 0, #fff5 0.09em 0.09em;
+    transform: skewY(-15deg);
+    user-select: none;
+    transition: transform .1s, text-shadow .1s;
+}
+
+.small-logo:hover {
+    text-shadow: var(--primary-color) 0 0 0.2em, var(--secondary-color) 0.09em 0.09em;
+}
+
+.small-logo:active {
+    transform: skewY(-15deg)translate(1px, 1px);
+}
+
+#content {
+    padding-bottom: 80px;
+}
+
+.main-error {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.error {
+    margin: 50px 20px;
+    font-size: 1.5em;
+}
+
+.error button {
+    font: inherit;
+    font-family: 'Open Sans';
+    background-color: white;
+    box-shadow: var(--primary-color) 0 0 10px, var(--secondary-color) 1px 1px, var(--secondary-color) 2px 2px, var(--secondary-color) 3px 3px, var(--secondary-color) 4px 4px, var(--secondary-color) 5px 5px, var(--secondary-color) 6px 6px;
+    color: black;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    transition: background-color .2s, transform .2s, box-shadow .2s;
+}
+
+.error button:hover {
+    background-color: #aaa;
+    transition: background-color .1s, transform .2s, box-shadow .2s;
+}
+
+.error button:active {
+    transform: translate(2px, 2px);
+    box-shadow: var(--primary-color) 0 0 10px, var(--secondary-color) 1px 1px, var(--secondary-color) 2px 2px, var(--secondary-color) 3px 3px, var(--secondary-color) 4px 4px, var(--secondary-color) 4px 4px, var(--secondary-color) 4px 4px;
+}
+
+.error h1 {
+    font-family: Oswald;
+    font-size: 2em;
+    animation: errorh1Anim 1.5s;
+    animation-fill-mode: both;
+}
+
+@keyframes errorh1Anim {
+    0% {
+        opacity: 0;
+    }
+    25% {
+        opacity: 1;
+        text-shadow: none;
+    }
+    100% {
+        text-shadow: var(--primary-color) 0 0 20px, var(--secondary-color) 1px 1px, var(--secondary-color) 2px 2px, var(--secondary-color) 3px 3px, var(--secondary-color) 4px 4px, var(--secondary-color) 5px 5px, var(--secondary-color) 6px 6px;
+    }
+}
+
+.flex {
+    display: flex;
+}
+
+.flex.column {
+    flex-direction: column;
+}
+
+.flex>.grow {
+    flex-grow: 1;
+}
+
+@media screen and (min-width: 768px) {
+    #sidebar {
+        height: 100%;
+        width: 80px;
+        flex-direction: column;
+    }
+    #sidebar button .active-indicator {
+        height: 40px;
+        width: 0;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        transition: width .2s, background-color .2s .2s, box-shadow .1s;
+    }
+    #sidebar button:hover .active-indicator {
+        height: unset;
+        width: 6px;
+    }
+    #sidebar button.active .active-indicator {
+        height: unset;
+        width: 6px;
+        transition: width .2s, background-color .1s, box-shadow .1s;
+    }
+    #sidebar button .tooltip {
+        z-index: 1;
+        position: absolute;
+        left: 100%;
+        top: 50%;
+        transform: translateY(-50%);
+        margin-left: 5px;
+        font-size: 0.8em;
+        background: white;
+        border-radius: 5px;
+        box-shadow: black 0 2px 10px;
+        padding: 5px 15px;
+        color: black;
+        text-shadow: none;
+        display: none;
+    }
+    #sidebar button:hover .tooltip {
+        display: block;
+        animation: tooltipAnim .2s cubic-bezier(0.5, 1.5, 0.5, 1);
+    }
+    @keyframes tooltipAnim {
+        from {
+            opacity: 0;
+            transform: translate(-10px, -50%);
+        }
+    }
+    .small-logo {
+        display: block;
+    }
+    #content {
+        height: 100%;
+        padding-left: 80px;
+        padding-bottom: 0;
+    }
+    .error {
+        margin: 0;
+    }
+}

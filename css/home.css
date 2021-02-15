@@ -1,0 +1,122 @@
+#main {
+    height: 100%;
+}
+
+#main>div {
+    margin: auto;
+}
+
+.logo {
+    font-family: 'BN Machine';
+    font-size: 5em;
+    line-height: 0.9em;
+    margin: 50px auto 10px;
+    text-shadow: #fff5 0.09em 0.09em;
+    transform: skewY(-15deg);
+    user-select: none;
+    white-space: nowrap;
+}
+
+.logo span.lines:nth-child(1) {
+    letter-spacing: 0.15em;
+}
+
+.logo span.lines:nth-child(2) {
+    letter-spacing: 0.05em;
+}
+
+.logo span.lines:nth-child(3) {
+    letter-spacing: 0em;
+}
+
+.logo .hover {
+    display: inline-block;
+    transition: transform .3s .1s cubic-bezier(0.6, 2, 0.1, 0.3), color .2s, text-shadow .3s;
+}
+
+@keyframes logoAnim {
+    from {
+        opacity: 0;
+        transform: translate(20px, 20px);
+    }
+}
+
+.logo .hover:hover {
+    z-index: 1;
+    color: var(--primary-color);
+    text-shadow: var(--secondary-color) 0.09em 0.09em, var(--primary-color) 0 0 0.5em, #000 0 0 0.1em;
+    transform: translate(-10px, -10px);
+    transition: transform .5s cubic-bezier(0.5, 2.1, 0.5, 0.4), color .2s, text-shadow .2s;
+}
+
+.logo .hover:hover:active {
+    transform: translate(-7px, -7px);
+}
+
+.welcome-text {
+    padding: 30px 10px;
+    max-width: 300px;
+}
+
+.welcome-text h2 {
+    margin: 0;
+    text-align: center;
+    font-size: 3.5em;
+    font-weight: 700;
+    font-family: Oswald;
+    animation: welcomeH2Anim 1s 1s;
+    animation-fill-mode: both;
+}
+
+@keyframes welcomeH2Anim {
+    to {
+        text-shadow: var(--primary-color) 0 0 20px, var(--secondary-color) 1px 1px, var(--secondary-color) 2px 2px, var(--secondary-color) 3px 3px, var(--secondary-color) 4px 4px, var(--secondary-color) 5px 5px, var(--secondary-color) 6px 6px;
+    }
+}
+
+.welcome-text p {
+    margin: 15px 0;
+    animation: welcomePAnim 1s .5s;
+    animation-fill-mode: both;
+}
+
+@keyframes welcomePAnim {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    #main>div {
+        flex-direction: row;
+        margin: auto 0;
+    }
+    .logo {
+        margin: auto 50px;
+        font-size: 6em;
+    }
+    .welcome-text {
+        padding: 0;
+        max-width: 400px;
+    }
+    .welcome-text h2 {
+        text-align: left;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .logo {
+        font-size: 8em;
+        margin: auto 100px;
+    }
+    .welcome-text {
+        max-width: 650px;
+    }
+    .welcome-text h2 {
+        font-size: 6em;
+    }
+    .welcome-text p {
+        font-size: 1.6em;
+    }
+}
