@@ -68,6 +68,7 @@ h1 {
     margin: 10px 0;
     background: #333 no-repeat center center;
     background-size: cover;
+    background-position: 0 0;
     transition: transform .3s, box-shadow .3s;
     text-decoration: none;
     overflow: hidden;
